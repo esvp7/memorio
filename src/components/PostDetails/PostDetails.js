@@ -3,7 +3,7 @@ import { Paper, Typography, CircularProgress, Divider } from "@material-ui/core"
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 import CommentSection from "./CommentSection";
 import { getPost, getPostsBySearch } from '../../actions/posts';
@@ -53,11 +53,19 @@ const PostDetails = () => {
           </div>
           <div className={classes.section}>
           <div className={classes.postStats}>
-          <Typography variant="h6" className={classes.postCreator}>{post.name}</Typography>
+          <Link to={`/creators/${post.name}`} style={{ textDecoration: 'none', color: '#000000' }}>
+          <Typography variant="h6" className={classes.postCreator}>{` ${post.name}`}</Typography>
+          </Link>
           <Typography variant="body1" className={classes.postDate}>{moment(post.createdAt).fromNow()}</Typography>
           </div>
           <Divider style={{ margin: '10px 0' }} />
-          <Typography gutterBottom variant="h6" color="textSecondary" component="h2" className={classes.postTags}>{post.tags.map((tag) => `#${tag} `)}</Typography>
+          <Typography gutterBottom variant="h6" color="textSecondary" component="h2" className={classes.postTags}>
+          {post.tags.map((tag) => (
+            <Link to={`/tags/${tag}`} style={{ textDecoration: 'none', color: '#3f51b5' }}>
+              {` #${tag} `}
+            </Link>
+          ))}
+          </Typography>
           <Typography gutterBottom variant="body1" component="p" className={classes.font}>{post.message}</Typography>
           <CommentSection post={post}/>
         </div>

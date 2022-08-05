@@ -27,8 +27,10 @@ export default makeStyles((theme) => ({
   },
   recommendedPosts: {
     display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
     borderRadius: '20px',
-    marginLeft: '-20px',
+    padding: '2.5rem',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
     },
@@ -86,5 +88,18 @@ export default makeStyles((theme) => ({
   recommendedImage: {
     borderRadius: '20px',
     padding: '5px',
+  },
+  wrapperSection: {
+    width: '11rem',
+    display: 'flex',
+    justifyContent: 'flex-start',
+  },
+  bySearch: {
+    fontFamily: font,
+    fontSize: '1.2rem',
+    fontWeight: 'light',
+    padding: '9px',
+    borderRadius: '30px',
+    background: 'linear-gradient(to right, rgb(199, 255, 247), rgb(255, 117, 205));'
   },
 }));

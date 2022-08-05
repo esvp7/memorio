@@ -28,7 +28,6 @@ export default makeStyles((theme) => ({
     },
   },
   image: {
-    marginLeft: '1rem',
     [theme.breakpoints.down('sm')]: {
       marginLeft: '-20px',
       width: '10%',
